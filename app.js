@@ -47,7 +47,8 @@ config = {
 Mojio = require('./lib/MojioClient.js');
 
 mojio = new Mojio(config);
-
+//https://developer.moj.io/reference/documentation
+//https://github.com/mojio/mojio-js
 mojio.login('hsdars', 'Darshanhs90-', function(error, result) {
 	if (error) {
 		return console.log("error: " + error);
