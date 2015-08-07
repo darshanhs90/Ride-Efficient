@@ -8,7 +8,7 @@ var express = require('express');
 var request = require('request');
 var https = require('https');
 var http=require('http');
-var cors = require('cors');  
+var cors = require('cors');    
 
 // cfenv provides access to your Cloud Foundry environment
 // for more info, see: https://www.npmjs.com/package/cfenv
@@ -49,7 +49,7 @@ Mojio = require('./lib/MojioClient.js');
 mojio = new Mojio(config);
 //https://developer.moj.io/reference/documentation
 //https://github.com/mojio/mojio-js
-mojio.login('hsdars', 'Darshanhs90-', function(error, result) {
+mojio.login('hsdars', 'Password', function(error, result) {
 	if (error) {
 		return console.log("error: " + error);
 	} else {
