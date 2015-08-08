@@ -49,7 +49,13 @@ Mojio = require('./lib/MojioClient.js');
 mojio = new Mojio(config);
 //https://developer.moj.io/reference/documentation
 //https://github.com/mojio/mojio-js
-mojio.login('hsdars', 'Password', function(error, result) {
+
+//Trip
+//Vehicle
+//Product
+//Subscription
+//Observer
+mojio.login('hsdars', 'Darshanhs90-', function(error, result) {
 	if (error) {
 		return console.log("error: " + error);
 	} else {
@@ -57,9 +63,23 @@ mojio.login('hsdars', 'Password', function(error, result) {
 		console.log(JSON.stringify(result));
 		//declare other models like this
 		mojio.query(mojio.model('Event',null), { limit:10, offset:0, sortby:"Time", desc:true,criteria:{} }, function(req,res){
-			
-			console.log(res.Data.length);
+			console.log('event'+res.Data.length);
 		})
+
+		mojio.query(mojio.model('Trip',null), { limit:10, offset:0, sortby:"StartTime", desc:false,criteria:{} }, function(req,res){
+			console.log('trip'+res.Data.length);
+		})
+
+		mojio.query(mojio.model('User',null), { limit:10, offset:0, sortby:"UserName", desc:false,criteria:{} }, function(req,res){
+			console.log('user'+res.Data.length);
+		})
+
+		mojio.query(mojio.model('Vehicle',null), { limit:10, offset:0, sortby:"Name", desc:false,criteria:{} }, function(req,res){
+			console.log('Vehicle'+JSON.stringify(res.Data));
+		})
+
+
+
 	}
 });
 
