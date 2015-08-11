@@ -1,11 +1,11 @@
 var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope, $http,$window) {
+app.controller('myCtrl', function($scope, $https,$window) {
 $scope.username='';
 $scope.pwd='';
 
     $scope.checklogin=function(){
         if($scope.username!='' && $scope.pwd!=''){
-           $http({
+           $https({
             url: 'https://rideefficient.mybluemix.net/login',
             method: "GET",
             params:{username:$scope.username,pwd:$scope.pwd}
