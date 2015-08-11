@@ -5,7 +5,7 @@ app.controller('myCtrl', function($scope, $http,$window) {
 	$scope.fl=[];
 	
 	$http({
-		url: 'http://localhost:1337/vehicles',
+		url: 'http://rideefficient.mybluemix.net/vehicles',
 		method: "GET"
 	}).success(function(data, status, headers, config) {
 		console.log(data);

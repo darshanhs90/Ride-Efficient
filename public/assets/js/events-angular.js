@@ -91,15 +91,7 @@ app.controller('myCtrl', function($scope, $http) {
                         $scope.location=data;
                         var length=$scope.location.results.length;
                         locn=($scope.location.results[length-1].formatted_address);
-                    $http({
-                    url: 'http://fantweet.mybluemix.net/updatelatlng',
-                    method: "GET",
-                    params:{
-                        address:locn
-                    }
-                }).success(function(data, status, headers, config) {
-                    console.log(data);
-                });
+                    
                 });
             }
 
