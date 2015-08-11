@@ -4,23 +4,24 @@
 	html5up.net | @n33co
 	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
-<html>
+<html ng-app="myApp">
 <head>
-	<title>Highlights by HTML5 UP</title>
+	<title>Ride Efficient</title>
 	<meta charset="utf-8" />
 	<meta name="viewport" content="width=device-width, initial-scale=1" />
 	<!--[if lte IE 8]><script src="assets/js/ie/html5shiv.js"></script><![endif]-->
 	<link rel="stylesheet" href="assets/css/main.css" />
+	
+        <link href="css/sweetalert.css" rel="stylesheet">
 	<!--[if lte IE 8]><link rel="stylesheet" href="assets/css/ie8.css" /><![endif]-->
 	<!--[if lte IE 9]><link rel="stylesheet" href="assets/css/ie9.css" /><![endif]-->
 </head>
-<body>
-
+<body ng-controller="myCtrl">
 	<!-- Header -->
 	<section id="header">
 		<header class="major">
-			<h1>Highlights</h1>
-			<p>A fun little { responsive } single pager by <a href="http://html5up.net">HTML5 UP</a></p>
+			<h1>Ride Efficient</h1>
+			
 		</header>
 		<div class="container">
 			<ul class="actions">
@@ -35,9 +36,9 @@
 			<span class="image fit primary"><img src="images/pic01.jpg" alt="" /></span>
 			<div class="content">
 				<header class="major">
-					<h2>Who I am</h2>
+					<h2>What We do</h2>
 				</header>
-				<p>Aliquam ante ac id. Adipiscing interdum lorem praesent fusce pellentesque arcu feugiat. Consequat sed ultricies rutrum. Sed adipiscing eu amet interdum lorem blandit vis ac commodo aliquet integer vulputate phasellus lorem ipsum dolor lorem magna consequat sed etiam adipiscing interdum.</p>
+				<p>Provide Efficient solutions for connected cars through the map integration.</p>
 			</div>
 			<a href="#two" class="goto-next scrolly">Next</a>
 		</div>
@@ -51,7 +52,7 @@
 				<header class="major">
 					<h2>Stuff I do</h2>
 				</header>
-				<p>Consequat sed ultricies rutrum. Sed adipiscing eu amet interdum lorem blandit vis ac commodo aliquet vulputate.</p>
+				<p>Lorem ipsum.Magna Etiam.Nulla Tempus.SedFeugiat</p>
 				<ul class="icons-grid">
 					<li>
 						<span class="icon major fa-camera-retro"></span>
@@ -97,14 +98,14 @@
 			<header class="major">
 				<h2>Login</h2>
 			</header>
-			<form method="post" action="sidebar.html">
+			<form >
 				<div class="row uniform">
 
-					<div class="12u$ 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Email" /></div>
-					<div class="12u$ 12u$(xsmall)"><input type="email" name="email" id="email" placeholder="Password" /></div>
+					<div class="12u$ 12u$(xsmall)"><input type="text" ng-model="username" type="email"  placeholder="Mojio Username" /></div>
+					<div class="12u$ 12u$(xsmall)"><input ng-model="pwd" type="password" placeholder="Password" /></div>
 					<div class="12u$">
 						<ul class="actions" >
-							<li><input type="submit" value="Login" class="special" /></li>
+							<li><input type="submit" value="Login" class="special"  ng-click="checklogin()"/></li>
 						</ul>
 					</div>
 				</div>
@@ -132,6 +133,9 @@
 	<script src="assets/js/util.js"></script>
 	<!--[if lte IE 8]><script src="assets/js/ie/respond.min.js"></script><![endif]-->
 	<script src="assets/js/main.js"></script>
+	<script src="assets/js/angular.min.js"></script>
+	<script src="assets/js/index-angular.js"></script>	
+	<script src="js/sweetalert.min.js"></script>
 
 </body>
 </html>

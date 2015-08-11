@@ -47,31 +47,24 @@ config = {
 Mojio = require('./lib/MojioClient.js');
 
 mojio = new Mojio(config);
-//https://developer.moj.io/reference/documentation
-//https://github.com/mojio/mojio-js
-
-//Trip
-//Vehicle
-//Product
-//Subscription
-//Observer
-mojio.login('hsdars', 'Darshanhs90-', function(error, result) {
-	if (error) {
-		return console.log("error: " + error);
-	} else {
-		//console.log("success:" + result);
-		//console.log(JSON.stringify(result));
-		//declare other models like this
-
-
-
-
-	}
-});
+app.get('/login',function(req,response){
+	console.log(req.query);
+	var username=req.query.username;
+	var pwd=req.query.pwd;
+	console.log(username);
+	console.log(pwd);
+	mojio.login(username, pwd, function(error, result) {
+		if (error) {
+			response.end('0');
+		} else {
+			response.end('1');
+		}
+	});
+})
 
 app.get('/events', function(req, response) {
 	mojio.query(mojio.model('Event',null), { limit:10, offset:0, sortby:"Time", desc:true,criteria:{} }, function(req,res){
-				response.send((res.Data));
+		response.send((res.Data));
 		response.end();
 	})
 });
@@ -80,7 +73,7 @@ app.get('/users', function(req, response) {
 
 
 	mojio.query(mojio.model('User',null), { limit:10, offset:0, sortby:"UserName", desc:false,criteria:{} }, function(req,res){
-				response.send((res.Data));
+		response.send((res.Data));
 		response.end();
 	})
 });
@@ -95,7 +88,7 @@ app.get('/vehicles', function(req, response) {
 });
 app.get('/trips', function(req, response) {
 	mojio.query(mojio.model('Trip',null), { limit:10, offset:0, sortby:"StartTime", desc:false,criteria:{} }, function(req,res){
-				response.send((res.Data));
+		response.send((res.Data));
 		response.end();
 	})
 });

@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Simple Sidebar - Start Bootstrap Template</title>
+    <title>Vehicles</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/bootstrap.min.css" rel="stylesheet">
@@ -35,8 +35,8 @@
             <div id="sidebar-wrapper">
                 <ul class="sidebar-nav">
                     <li class="sidebar-brand">
-                        <a href="#">
-                            Start Bootstrap
+                        <a href="index.html">
+                            Logout
                         </a>
                     </li>
                     <li>
@@ -78,7 +78,7 @@
                                 <tr><td>LastLocation Longitude</td><td ng-click="getLocation($index)"><a>{{x.LastLocation.Lng}}</a></td></tr>
                                 
                                 <tr><td>LastSpeed</td><td>{{x.LastSpeed}}</td></tr>
-                                <tr><td>FuelLevel</td><td ng-show="fl[$index]==true">{{x.FuelLevel}}</td><td ng-show="fl[$index]==false"><button class="btn btn-info" ng-click="getFuelLevel($index)"> Get FuelLevel</button></td></tr>
+                                <tr><td>FuelLevel</td><td ng-show="fl[$index]==true">{{x.FuelLevel}}</td><td ng-show="fl[$index]==false"><button class="btn btn-info" ng-click="getFuelLevel($index)"> Get Fuel Level</button></td></tr>
                                 <tr><td>LastAcceleration</td><td>{{x.LastAcceleration}}</td></tr>
                                 <tr><td>LastAccelerometer</td><td>{{x.LastAccelerometer}}</td></tr>
                                 <tr><td>LastAltitude</td><td>{{x.LastAltitude}}</td></tr>

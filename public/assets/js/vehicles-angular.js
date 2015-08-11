@@ -21,8 +21,22 @@ app.controller('myCtrl', function($scope, $http,$window) {
 		$window.open(link);
 	};
 
+	$scope.getFuelLevel=function($val){
+		$scope.fl[$val]=true;
+		if($scope.vehicles[$val].FuelLevel>60)
+			swal({   title: "Sweet!",   text: "Maintain the fuel level",   imageUrl: "images/yay.jpg" });
+		else
+			swal({   title: "Oops!",   text: "Refuel ASAP",   imageUrl: "images/what.jpg" });
 
-	//swal({   title: "Sweet!",   text: "Here's a custom image.",   imageUrl: "images/yay.jpg" });
-	//swal({   title: "Sweet!",   text: "Here's a custom image.",   imageUrl: "images/what.jpg" });
+	}
+	$scope.getFuelEfficiency=function($val){
+		$scope.fe[$val]=true;
+		if($scope.vehicles[$val].FuelEfficiency>60)
+			swal({   title: "Sweet!",   text: "Maintain the fuel Efficiency",   imageUrl: "images/yay.jpg" });
+		else
+			swal({   title: "Oops!",   text: "Efficiency deteriorating.Service the car ASAP",   imageUrl: "images/what.jpg" });
+
+	}
+
 
 });
