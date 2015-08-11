@@ -5,7 +5,7 @@ app.controller('myCtrl', function($scope, $http,$window) {
 	$scope.fl=[];
 	
 	$http({
-		url: 'http://rideefficient.mybluemix.net/vehicles',
+		url: 'https://rideefficient.mybluemix.net/vehicles',
 		method: "GET"
 	}).success(function(data, status, headers, config) {
 		console.log(data);
@@ -17,7 +17,7 @@ app.controller('myCtrl', function($scope, $http,$window) {
 		swal({   title: "Sweet!",   text: "Data Load successful",   imageUrl: "images/yay.jpg" });
 	});
 	$scope.getLocation=function($index){
-		var link="http://maps.google.com/?q="+$scope.vehicles[$index].LastLocation.Lat+','+$scope.vehicles[$index].LastLocation.Lng;
+		var link="https://maps.google.com/?q="+$scope.vehicles[$index].LastLocation.Lat+','+$scope.vehicles[$index].LastLocation.Lng;
 		$window.open(link);
 	};
 

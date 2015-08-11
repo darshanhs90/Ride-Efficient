@@ -7,7 +7,7 @@ app.controller('myCtrl', function($scope, $http) {
     $scope.fe=[];
     
     $http({
-        url: 'http://rideefficient.mybluemix.net/trips',
+        url: 'https://rideefficient.mybluemix.net/trips',
         method: "GET"
     }).success(function(data, status, headers, config) {
         console.log(data);
