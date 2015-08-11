@@ -1,5 +1,5 @@
 var app = angular.module('myApp', []);
-app.controller('myCtrl', function($scope, $https,$window) {
+app.controller('myCtrl', function($scope, $http,$window) {
 $scope.username='';
 $scope.pwd='';
 
