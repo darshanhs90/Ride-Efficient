@@ -5,7 +5,7 @@ $scope.pwd='';
 
     $scope.checklogin=function(){
         if($scope.username!='' && $scope.pwd!=''){
-           $https({
+           $http({
             url: 'https://rideefficient.mybluemix.net/login',
             method: "GET",
             params:{username:$scope.username,pwd:$scope.pwd}
