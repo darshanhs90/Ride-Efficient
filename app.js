@@ -59,28 +59,44 @@ mojio.login('hsdars', 'Darshanhs90-', function(error, result) {
 	if (error) {
 		return console.log("error: " + error);
 	} else {
-		console.log("success:" + result);
-		console.log(JSON.stringify(result));
+		//console.log("success:" + result);
+		//console.log(JSON.stringify(result));
 		//declare other models like this
-		mojio.query(mojio.model('Event',null), { limit:10, offset:0, sortby:"Time", desc:true,criteria:{} }, function(req,res){
-			console.log('event'+res.Data.length);
-		})
 
-		mojio.query(mojio.model('Trip',null), { limit:10, offset:0, sortby:"StartTime", desc:false,criteria:{} }, function(req,res){
-			console.log('trip'+res.Data.length);
-		})
-
-		mojio.query(mojio.model('User',null), { limit:10, offset:0, sortby:"UserName", desc:false,criteria:{} }, function(req,res){
-			console.log('user'+res.Data.length);
-		})
-
-		mojio.query(mojio.model('Vehicle',null), { limit:10, offset:0, sortby:"Name", desc:false,criteria:{} }, function(req,res){
-			console.log('Vehicle'+JSON.stringify(res.Data));
-		})
 
 
 
 	}
 });
 
+app.get('/events', function(req, response) {
+	mojio.query(mojio.model('Event',null), { limit:10, offset:0, sortby:"Time", desc:true,criteria:{} }, function(req,res){
+				response.send((res.Data));
+		response.end();
+	})
+});
+
+app.get('/users', function(req, response) {
+
+
+	mojio.query(mojio.model('User',null), { limit:10, offset:0, sortby:"UserName", desc:false,criteria:{} }, function(req,res){
+				response.send((res.Data));
+		response.end();
+	})
+});
+app.get('/vehicles', function(req, response) {
+
+
+	mojio.query(mojio.model('Vehicle',null), { limit:10, offset:0, sortby:"Name", desc:false,criteria:{} }, function(req,res){
+		console.log('hit vehicles');
+		response.send((res.Data));
+		response.end();
+	})
+});
+app.get('/trips', function(req, response) {
+	mojio.query(mojio.model('Trip',null), { limit:10, offset:0, sortby:"StartTime", desc:false,criteria:{} }, function(req,res){
+				response.send((res.Data));
+		response.end();
+	})
+});
 

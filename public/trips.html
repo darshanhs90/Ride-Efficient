@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+    <link rel="stylesheet" href="css/alertify.css" />
+    <!-- include a theme, can be included into the core instead of 2 separate files -->
+    <link rel="stylesheet" href="css/alertify.default.css" />
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body ng-controller="myCtrl">
+
+        <div id="wrapper">
+
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            Start Bootstrap
+                        </a>
+                    </li>
+                    <li>
+                        <a href="routes.html">My Routes</a>
+                    </li>
+                    <li>
+                        <a href="events.html">Map events</a>
+                    </li>
+                    <li>
+                        <a href="trips.html">Trips</a>
+                    </li>
+                    <li>
+                        <a href="users.html">User Data</a>
+                    </li>
+                    <li>
+                        <a href="vehicles.html">Vehicle Data</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /#sidebar-wrapper -->
+
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3 class="page-header">Trips</h3>
+                            <table  ng-repeat="x in trips track by $index" class="table table-hovered table-bordered">
+                                <tr><td>Description</td><td>Value</td></tr>
+                                <tr><td>Vehicle ID</td><td ng-show="id[$index]==true">{{x.VehicleId}}</td><td ng-show="id[$index]==false"><button class="btn btn-info" ng-click="getvehicleID($index)"> Get Vehicle ID</button></td></tr>
+                                <tr><td>Max Speed</td><td ng-show="ms[$index]==true">{{x.MaxSpeed}}</td><td ng-show="ms[$index]==false"><button class="btn btn-info" ng-click="getSpeed($index)"> Check Speed</button></td></tr>
+                                <tr><td>MaxAcceleration</td><td>{{x.MaxAcceleration}}</td></tr>
+                                <tr><td>MaxRPM</td><td>{{x.MaxRPM}}</td></tr>
+                                <tr><td>FuelLevel</td><td ng-show="fl[$index]==true">{{x.FuelLevel}}</td><td ng-show="fl[$index]==false"><button class="btn btn-info" ng-click="getFuelLevel($index)"> Get FuelLevel</button></td></tr>
+                                <tr><td>FuelEfficiency</td><td ng-show="fe[$index]==true">{{x.FuelEfficiency}}</td><td ng-show="fe[$index]==false"><button class="btn btn-info" ng-click="getFuelEfficiency($index)"> Check Efficiency</button></td></tr>
+                                <tr><td>Distance</td><td>{{x.Distance}}</td></tr>
+                                <tr><td>StartMilage</td><td>{{x.StartMilage}}</td></tr>
+                                <tr><td>EndMilage</td><td>{{x.EndMilage}}</td></tr>
+                                <tr><td>StartOdometer</td><td>{{x.StartOdometer}}</td></tr>
+                                <tr><td>StartAddress</td><td>{{x.StartAddress.Address1}}</td></tr>
+                                <tr><td>EndAddress</td><td>{{x.EndAddress.Address1}}</td></tr>
+                                
+                            </div>
+                            <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /#page-content-wrapper -->
+
+        </div>
+        <!-- /#wrapper -->
+
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+
+        <!-- Menu Toggle Script -->
+        <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+        </script>
+        <script src="assets/js/angular.min.js"></script>
+        <script src="assets/js/trips-angular.js"></script>
+        <script src="js/alertify.js"></script>
+        <script src="js/sweetalert.min.js"></script>
+
+    </body>
+
+    </html>

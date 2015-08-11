@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="myApp">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Simple Sidebar - Start Bootstrap Template</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+
+    <!-- Custom CSS -->
+    <link href="css/simple-sidebar.css" rel="stylesheet">
+        <link href="css/sweetalert.css" rel="stylesheet">
+    
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body ng-controller="myCtrl">
+
+        <div id="wrapper">
+
+            <!-- Sidebar -->
+            <div id="sidebar-wrapper">
+                <ul class="sidebar-nav">
+                    <li class="sidebar-brand">
+                        <a href="#">
+                            Start Bootstrap
+                        </a>
+                    </li>
+                    <li>
+                        <a href="routes.html">My Routes</a>
+                    </li>
+                    <li>
+                        <a href="events.html">Map events</a>
+                    </li>
+                    <li>
+                        <a href="trips.html">Trips</a>
+                    </li>
+                    <li>
+                        <a href="users.html">User Data</a>
+                    </li>
+                    <li>
+                        <a href="vehicles.html">Vehicle Data</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /#sidebar-wrapper -->
+
+            <!-- Page Content -->
+            <div id="page-content-wrapper">
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-lg-12">
+                            <h3class="page-header"></h3>
+
+                            <table  ng-repeat="x in vehicles track by $index" class="table table-hovered table-bordered">
+                                <tr><td>Description</td><td>Value</td></tr>
+                                <tr><td>Type</td><td>{{x.Type}}</td></tr>
+                                <tr><td>Name</td><td>{{x.Name}}</td></tr>
+                                <tr><td>VIN</td><td>{{x.VIN}}</td></tr>
+                                <tr><td>LicensePlate</td><td>{{x.LicensePlate}}</td></tr>
+                                <tr><td>IgnitionOn</td><td>{{x.IgnitionOn}}</td></tr>
+                                <tr><td>IgnitionEventTime</td><td>{{x.IgnitionEventTime}}</td></tr>
+                                <tr><td>VehicleTime</td><td>{{x.VehicleTime}}</td></tr>
+                                <tr><td>LastLocation Latitude</td><td ng-click="getLocation($index)"><a>{{x.LastLocation.Lat}}</a></td></tr>
+                                <tr><td>LastLocation Longitude</td><td ng-click="getLocation($index)"><a>{{x.LastLocation.Lng}}</a></td></tr>
+                                
+                                <tr><td>LastSpeed</td><td>{{x.LastSpeed}}</td></tr>
+                                <tr><td>FuelLevel</td><td ng-show="fl[$index]==true">{{x.FuelLevel}}</td><td ng-show="fl[$index]==false"><button class="btn btn-info" ng-click="getFuelLevel($index)"> Get FuelLevel</button></td></tr>
+                                <tr><td>LastAcceleration</td><td>{{x.LastAcceleration}}</td></tr>
+                                <tr><td>LastAccelerometer</td><td>{{x.LastAccelerometer}}</td></tr>
+                                <tr><td>LastAltitude</td><td>{{x.LastAltitude}}</td></tr>
+                                <tr><td>LastBatteryVoltage</td><td>{{x.LastBatteryVoltage}}</td></tr>
+                                <tr><td>LastDistance</td><td>{{x.LastDistance}}</td></tr>
+                                <tr><td>LastHeading</td><td>{{x.LastHeading}}</td></tr>
+                                <tr><td>LastVirtualOdometer</td><td>{{x.LastVirtualOdometer}}</td></tr>
+                                <tr><td>EstimatedOdometerBase</td><td>{{x.EstimatedOdometerBase}}</td></tr>
+                                <tr><td>EstimatedOdometerAtTripStart</td><td>{{x.EstimatedOdometerAtTripStart}}</td></tr>
+                                <tr><td>LastOdometer</td><td>{{x.LastOdometer}}</td></tr>
+                                <tr><td>EstimatedOdometer</td><td>{{x.EstimatedOdometer}}</td></tr>
+                                <tr><td>LastRpm</td><td>{{x.LastRpm}}</td></tr>
+                                <tr><td>LastFuelEfficiency</td><td ng-show="fe[$index]==true">{{x.FuelEfficiency}}</td><td ng-show="fe[$index]==false"><button class="btn btn-info" ng-click="getFuelEfficiency($index)"> Get Fuel Efficiency</button></td></tr>
+                                <tr><td>LastContactTime</td><td>{{x.LastContactTime}}</td></tr>
+                                <tr><td>MilStatus</td><td>{{x.MilStatus}}</td></tr>
+                                <tr><td>DiagnosticCodes</td><td>{{x.DiagnosticCodes}}</td></tr>
+                                <tr><td>FaultsDetected</td><td>{{x.FaultsDetected}}</td></tr>
+                                
+                                
+                            </div>
+                            <a href="#menu-toggle" class="btn btn-default" id="menu-toggle">Toggle Menu</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- /#page-content-wrapper -->
+
+        </div>
+        <!-- /#wrapper -->
+
+        <!-- jQuery -->
+        <script src="js/jquery.js"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="js/bootstrap.min.js"></script>
+
+        <!-- Menu Toggle Script -->
+        <script>
+        $("#menu-toggle").click(function(e) {
+            e.preventDefault();
+            $("#wrapper").toggleClass("toggled");
+        });
+        </script>
+        <script src="assets/js/angular.min.js"></script>
+    <script src="assets/js/vehicles-angular.js"></script>    
+    <script src="js/alertify.js"></script>
+    <script src="js/sweetalert.min.js"></script>
+    </body>
+
+    </html>
