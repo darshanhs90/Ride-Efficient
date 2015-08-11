@@ -13,7 +13,7 @@ $scope.pwd='';
             console.log(data);
             if(data=='1'){
             swal({   title: "Sweet!",   text: "Login Successful",   imageUrl: "images/yay.jpg" });
-            window.location.replace('./events.html');
+            window.location.replace('./routes.html');
             }
             else{
                 swal({   title: "Oops!",   text: "Invalid Credentials",   imageUrl: "images/what.jpg" });
